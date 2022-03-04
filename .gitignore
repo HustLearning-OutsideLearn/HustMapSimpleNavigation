@@ -1,3 +1,17 @@
 *.exe
 !spec/*.exe
 HelloWorld.cpp
+*.aux
+!spec/*.aux
+*.log
+!spec/*.log
+*.gz
+!spec/*.gz
+*.tex
+!spec/*.tex
+*.blg
+!spec/*.blg
+*.bbl
+!spec/*.bbl
+*.png
+!spec/*.png
