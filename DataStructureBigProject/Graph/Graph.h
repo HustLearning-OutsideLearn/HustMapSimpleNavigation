@@ -1,3 +1,6 @@
+#ifndef Graph_H
+#define Graph_H
+
 #include <iostream>
 #include <list>
 #include <stack>
@@ -5,19 +8,16 @@
 
 using namespace std;
 
-#ifndef Graph_H
-#define Graph_H
-
-// struct node{
-//     int index;
-//     int x;
-//     int y;
-// };
+struct node{
+    int index;
+    int x;
+    int y;
+};
 
 class Graph{
 private:
     int Vertice_Count;
-    list<struct node> Adj_lst;
+    // list<struct node> Adj_lst;
     vector<vector<float>> Adj_Matrix; // Index of Node starts from 1
     string fname = "Adjacency_Matrix_Preprocess.csv";
 
