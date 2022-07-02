@@ -15,8 +15,12 @@ int main(){
 
     string fname = "Adjacency_Matrix_Preprocess.csv";
  
-    vector<vector<string>> content;
-    vector<string> row;
+    // vector<vector<string>> content;
+    // vector<string> row;
+
+    vector<vector<float>> content;
+    vector<float> row;
+    
     string line, word;
  
     fstream file (fname, ios::in);
@@ -27,7 +31,7 @@ int main(){
             stringstream str(line);
  
             while(getline(str, word, ','))
-            row.push_back(word);
+            row.push_back(stof(word));
             content.push_back(row);
         }       
     } else cout<<"Could not open the file\n";
