@@ -1,9 +1,4 @@
 #include "Graph.h"
-#include <iostream>
-#include <vector>
-#include <fstream>
-#include <string>
-#include <sstream>
 
 using namespace std;
 
@@ -16,32 +11,19 @@ void Graph::Graph_Show_Adj_Matrix() {
     }
 }
 
-void Graph::Graph_Show_Adj_List() {
-    cout << "Got here";
-    for (int i = 0; i < vertice_count; i++) {
-        list<edge*> base_lst = adj_lst[i];
-        for (list<edge*>::iterator it = base_lst.begin(); it != base_lst.end(); it++) {
-            edge * edge_base = (*it);
-            node* start_node = edge_base->inital_point;
-            node* end_node = edge_base->final_point;
-            float weight = edge_base->weight;
-            cout 
-                << "(" 
-                << start_node->index 
-                << "->" 
-                << end_node->index 
-                << ")";
+void Graph::Graph_Show_MetaData(bool position_contain) {
+    if (position_contain) {
+        for (int i = 0; i < meta_content.size(); i++) {
+            for (int j = 0; j < meta_content[i].size(); j++) {
+                cout << meta_content[i][j] << " ";
+            }
+            cout << "\n";
         }
-        cout << endl;
     }
-}
-
-void Graph::Graph_Show_MetaData() {
-    for (int i = 0; i < meta_content.size(); i++) {
-        for (int j = 0; j < meta_content[i].size(); j++) {
-            cout << meta_content[i][j] << " ";
+    else {
+        for (int i = 0; i < meta_content.size(); i++) {
+            cout << "Position " << meta_content[i][0] << ": " << meta_content[i][3] << endl;
         }
-        cout << "\n";
     }
 }
 
@@ -49,18 +31,9 @@ int Graph::Vertice_Count() {
     return vertice_count;
 }
 
-void Graph::Node_Info_Query(int index) {
-
-}
-
-void Graph::Edge_Info_Query(int start_node_index, int end_node_index) {
-
-}
-
-void Graph::Graph_Show_Map(bool show_path, int expected_width, int expected_height, int thickness) {
+void Graph::Graph_Show_Map(bool show_path, int expected_width, int expected_height) {
     Mat resized_img;
     if (show_path) {
-        DrawLinePath(Graph_Get_Test_Path(), thickness);
         resize(map_path_img, resized_img, Size(expected_width, expected_height), INTER_LINEAR);
         imshow("Hust Map", resized_img);
         waitKey(0);
@@ -80,4 +53,24 @@ vector<int> Graph::Graph_Get_Test_Path() {
         output.push_back(arr[i]);
     }
     return output;
+}
+
+void Graph::Graph_Show_Adj_List() {
+    for (int i = 0; i < vertice_count; i++) {
+        cout << i + 1 << " -> [ ";
+        list<int>::iterator it;
+        list<int> base_lst = adj_lst[i];
+        for (it = base_lst.begin(); it != base_lst.end(); it++) {
+            cout << (*it) + 1 << " ";
+        }
+        cout << "]";
+        if (i % 4 == 0) {
+            cout << endl;
+        }
+        else {
+            cout << "       ";
+        }
+    }
+
+    cout << endl;
 }

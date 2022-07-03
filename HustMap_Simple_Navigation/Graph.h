@@ -18,18 +18,6 @@
 using namespace cv;
 using namespace std;
 
-typedef struct node {
-    int index;
-    int x;
-    int y;
-} node;
-
-typedef struct edge {
-    node* inital_point;
-    node* final_point;
-    float weight;
-} edge;
-
 class Graph {
 private:
     /*
@@ -44,10 +32,11 @@ private:
     * map_path (string): Image of Hust Map file path
     * map_img (Mat): Store the image loaded by open-cv
     * map_path_img (Mat): Store the image contained path drawed by open-cv
-    * test_path <vector>: list of index for test the line drawing
+    * test_path (vector): list of index for test the line drawing
+    * current_path (vector): List of path found
     */
     int vertice_count;
-    list<edge*> * adj_lst;
+    list<int> * adj_lst;
     vector<vector<float>> adj_matrix; // Index of Node starts from 1
     vector<vector<string>> meta_content;
     string adj_matrix_path = "Graph\\Adjacency_Matrix_Preprocess.csv";
@@ -56,6 +45,7 @@ private:
     Mat map_img;
     Mat map_path_img;
     vector<int> test_path;
+    vector<vector<int>> current_path;
     
     //Graph Init with Adjacency Matrix
     void Graph_Adj_Matrix_Init();
@@ -69,17 +59,18 @@ private:
     //Graph load Map
     void Graph_Load_Map();
 
-    //Node Instantiate
-    node* Node_Instantiation(int index, int pos_x, int pos_y);
+    //Function: Get all path
+    void printAllPaths(int s, int d);
 
-    //Edge Instantiate
-    edge* Edge_Instantiation(node* start_node, node* end_node, float weight);
+    //Function: Get all path utils
+    void printAllPathsUtil(int u, int d, bool visited[], int path[], int& path_index);
 
     //Function: Add Edge to Graph -- Use when init graph with Adjacency List
-    void AddEdge(int index, edge* _edge);
+    void AddEdge(int start_node_index, int end_node_index);
 
     //Function: Draw path
     void DrawLinePath(vector<int> arr_index, int thickness);
+
 public:
     //Graph Constructor
     Graph(int V_count);
@@ -87,25 +78,25 @@ public:
     // Function: Get number of node
     int Vertice_Count();
 
-    //Function: Get Information of node
-    void Node_Info_Query(int index);
-
-    //Function: Get Information of edge
-    void Edge_Info_Query(int start_node_index, int end_node_index);
-
     // Function: Showing Adjacency Matrix
     void Graph_Show_Adj_Matrix();
+
+    // Function: Showing Metadata
+    void Graph_Show_MetaData(bool position_contain);
 
     // Function: Showing Adjacency List
     void Graph_Show_Adj_List();
 
-    // Function: Showing Metadata
-    void Graph_Show_MetaData();
-
     // Function: Showing Map
-    void Graph_Show_Map(bool show_path, int expected_width, int expected_height, int thichkness);
+    void Graph_Show_Map(bool show_path, int expected_width, int expected_height);
 
+    // Take path test
     vector<int> Graph_Get_Test_Path();
+
+    // Function: PathFinding DFS
+    void PathFindingDFS(int start_node_index, int end_node_index);
+
+
 };
 
 #endif
