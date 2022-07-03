@@ -6,14 +6,19 @@ using namespace std;
 const int node_count = 35;
 bool program_active = true;
 
+void Clear() {
+	for (int n = 0; n < 10; n++)
+		printf("\n\n\n\n\n\n\n\n\n\n");
+}
+
 void Exit() {
-	cout << "\033[2J\033[1;1H";
-	cout << "Cut";
+	Clear();
+	cout << "CUTTTTTTTTTTT";
 	program_active = false;
 }
 
 void App() {
-	cout << "\033[2J\033[1;1H";
+	Clear();
 
 	Graph HustMap(node_count);
 	HustMap.Graph_Show_MetaData(false);
@@ -25,7 +30,7 @@ void App() {
 		cout << "Nhap cho ong chau muon ve di laoooo: "; cin >> ending_point_index;
 
 		HustMap.PathFindingDFS(starting_point_index, ending_point_index);
-
+		Clear();
 		cout << "Ong chau co muon dung tiep hong laooo: , An 1 oke ma an 2 cung oke, nhap deee: "; cin >> choice;
 		if (choice == 2) {
 			Exit();
