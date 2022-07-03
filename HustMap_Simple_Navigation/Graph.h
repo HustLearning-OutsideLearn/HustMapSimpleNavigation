@@ -5,9 +5,15 @@
 #include <list>
 #include <stack>
 #include <vector>
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <string>
+#include <sstream>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc.hpp>
+
 
 using namespace cv;
 using namespace std;
@@ -38,6 +44,7 @@ private:
     * map_path (string): Image of Hust Map file path
     * map_img (Mat): Store the image loaded by open-cv
     * map_path_img (Mat): Store the image contained path drawed by open-cv
+    * test_path <vector>: list of index for test the line drawing
     */
     int vertice_count;
     list<edge*> * adj_lst;
@@ -48,6 +55,7 @@ private:
     string map_path = "Map\\BK Map.jpg";
     Mat map_img;
     Mat map_path_img;
+    vector<int> test_path;
     
     //Graph Init with Adjacency Matrix
     void Graph_Adj_Matrix_Init();
@@ -70,6 +78,8 @@ private:
     //Function: Add Edge to Graph -- Use when init graph with Adjacency List
     void AddEdge(int index, edge* _edge);
 
+    //Function: Draw path
+    void DrawLinePath(vector<int> arr_index, int thickness);
 public:
     //Graph Constructor
     Graph(int V_count);
@@ -93,7 +103,9 @@ public:
     void Graph_Show_MetaData();
 
     // Function: Showing Map
-    void Graph_Show_Map(bool show_path);
+    void Graph_Show_Map(bool show_path, int expected_width, int expected_height, int thichkness);
+
+    vector<int> Graph_Get_Test_Path();
 };
 
 #endif

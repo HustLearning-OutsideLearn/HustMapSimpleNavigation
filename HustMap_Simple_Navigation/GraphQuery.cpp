@@ -57,12 +57,27 @@ void Graph::Edge_Info_Query(int start_node_index, int end_node_index) {
 
 }
 
-void Graph::Graph_Show_Map(bool show_path) {
+void Graph::Graph_Show_Map(bool show_path, int expected_width, int expected_height, int thickness) {
+    Mat resized_img;
     if (show_path) {
-        //
-    }
-    else {
-        imshow("Hust Map", map_img);
+        DrawLinePath(Graph_Get_Test_Path(), thickness);
+        resize(map_path_img, resized_img, Size(expected_width, expected_height), INTER_LINEAR);
+        imshow("Hust Map", resized_img);
         waitKey(0);
     }
+    else {
+        resize(map_img, resized_img, Size(expected_width, expected_height), INTER_LINEAR);
+        imshow("Hust Map", resized_img);
+        waitKey(0);
+    }
+}
+
+vector<int> Graph::Graph_Get_Test_Path() {
+    int arr[] = { 1, 2, 3, 4, 5, 6, 21, 20, 19, 18, 13 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+    vector<int> output;
+    for (int i = 0; i < size; i++) {
+        output.push_back(arr[i]);
+    }
+    return output;
 }
