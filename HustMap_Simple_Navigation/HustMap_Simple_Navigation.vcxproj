@@ -127,25 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\DataStructureBigProject\Test\csv_open.cpp" />
-    <ClCompile Include="..\DataStructureBigProject\Test\testlist.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="HustMap_Simple_Navigation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\DataStructureBigProject\Map\BK Map - PointChoose - Labeled.png" />
-    <Image Include="..\DataStructureBigProject\Map\BK Map - PointChoose.jpg" />
-    <Image Include="..\DataStructureBigProject\Map\BK Map.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\DataStructureBigProject\Graph\Adjacency Matrix.csv" />
-    <None Include="..\DataStructureBigProject\Graph\Adjacency_Matrix_Preprocess.csv" />
-    <None Include="..\DataStructureBigProject\Graph\Metadata.csv" />
-    <None Include="..\DataStructureBigProject\Graph\Weight Computing.ipynb" />
-    <None Include="..\DataStructureBigProject\Map\BK Map - PointChoose.psd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
