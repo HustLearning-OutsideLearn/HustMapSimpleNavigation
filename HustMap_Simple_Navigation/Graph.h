@@ -5,7 +5,11 @@
 #include <list>
 #include <stack>
 #include <vector>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 
+using namespace cv;
 using namespace std;
 
 typedef struct node {
@@ -31,13 +35,19 @@ private:
     * meta_conttent: 2D vector store the metadatas
     * adj_matrix_path (string): Adjacency Matrix CSV file path
     * meta_path (string): Metadata file path
+    * map_path (string): Image of Hust Map file path
+    * map_img (Mat): Store the image loaded by open-cv
+    * map_path_img (Mat): Store the image contained path drawed by open-cv
     */
     int vertice_count;
-    list<edge* > * adj_lst;
+    list<edge*> * adj_lst;
     vector<vector<float>> adj_matrix; // Index of Node starts from 1
     vector<vector<string>> meta_content;
     string adj_matrix_path = "Graph\\Adjacency_Matrix_Preprocess.csv";
     string meta_path = "Graph\\Metadata.csv";
+    string map_path = "Map\\BK Map.jpg";
+    Mat map_img;
+    Mat map_path_img;
     
     //Graph Init with Adjacency Matrix
     void Graph_Adj_Matrix_Init();
@@ -47,6 +57,9 @@ private:
 
     //Graph init Metadata
     void Graph_Metadata_Init();
+
+    //Graph load Map
+    void Graph_Load_Map();
 
     //Node Instantiate
     node* Node_Instantiation(int index, int pos_x, int pos_y);
@@ -75,6 +88,12 @@ public:
 
     // Function: Showing Adjacency List
     void Graph_Show_Adj_List();
+
+    // Function: Showing Metadata
+    void Graph_Show_MetaData();
+
+    // Function: Showing Map
+    void Graph_Show_Map(bool show_path);
 };
 
 #endif

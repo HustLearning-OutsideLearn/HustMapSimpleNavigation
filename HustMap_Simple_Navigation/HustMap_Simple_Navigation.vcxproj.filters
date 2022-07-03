@@ -18,10 +18,13 @@
     <ClCompile Include="HustMap_Simple_Navigation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Graph.cpp">
+    <ClCompile Include="GraphMainFunction.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="GraphQuery.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphConstructor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
