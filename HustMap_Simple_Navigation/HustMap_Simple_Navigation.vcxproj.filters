@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Data">
+      <UniqueIdentifier>{516be6f1-8127-4554-8aff-a1611dd8f005}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HustMap_Simple_Navigation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DataStructureBigProject\Test\csv_open.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DataStructureBigProject\Test\testlist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Graph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\DataStructureBigProject\Map\BK Map - PointChoose - Labeled.png">
+      <Filter>Resource Files\Data</Filter>
+    </Image>
+    <Image Include="..\DataStructureBigProject\Map\BK Map - PointChoose.jpg">
+      <Filter>Resource Files\Data</Filter>
+    </Image>
+    <Image Include="..\DataStructureBigProject\Map\BK Map.jpg">
+      <Filter>Resource Files\Data</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\DataStructureBigProject\Map\BK Map - PointChoose.psd">
+      <Filter>Resource Files\Data</Filter>
+    </None>
+    <None Include="..\DataStructureBigProject\Graph\Adjacency Matrix.csv">
+      <Filter>Resource Files\Data</Filter>
+    </None>
+    <None Include="..\DataStructureBigProject\Graph\Metadata.csv">
+      <Filter>Resource Files\Data</Filter>
+    </None>
+    <None Include="..\DataStructureBigProject\Graph\Weight Computing.ipynb">
+      <Filter>Resource Files\Data</Filter>
+    </None>
+    <None Include="..\DataStructureBigProject\Graph\Adjacency_Matrix_Preprocess.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
