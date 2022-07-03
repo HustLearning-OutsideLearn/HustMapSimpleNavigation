@@ -22,6 +22,16 @@ typedef struct edge {
 
 class Graph {
 private:
+    /*
+    * vertice_count (int): store the number of vertice in graph
+    * adj_lst:
+    *   initial state: list of edge pointer
+    *   final state (graph initialization): array of list of edge pointer
+    * adj_matrix: 2D vector store the adjacency matrix
+    * meta_conttent: 2D vector store the metadatas
+    * adj_matrix_path (string): Adjacency Matrix CSV file path
+    * meta_path (string): Metadata file path
+    */
     int vertice_count;
     list<edge* > * adj_lst;
     vector<vector<float>> adj_matrix; // Index of Node starts from 1

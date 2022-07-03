@@ -113,19 +113,7 @@ edge* Graph::Edge_Instantiation(node* start_node, node* end_node, float weight) 
     return edge_ptr;
 }
 
-void Graph::Graph_Show_Adj_Matrix() {
-    for (int i = 0; i < adj_matrix.size(); i++) {
-        for (int j = 0; j < adj_matrix[i].size(); j++) {
-            cout << adj_matrix[i][j] << " ";
-        }
-        cout << "\n";
-    }
-}
-
-void Graph::Graph_Show_Adj_List() {
-    cout << "Hello World" << endl;
-}
-
 void Graph::AddEdge(int index, edge* _edge) {
     adj_lst[index].push_back(_edge);
 }
+
