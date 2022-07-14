@@ -31,7 +31,7 @@ Graph::Graph(int v_count) {
 //}
 
 void Graph::Graph_Adj_Matrix_Init() {
-    vector<float> row;
+    vector<double> row;
     string line, word;
 
     fstream file(adj_matrix_path, ios::in);

@@ -135,6 +135,8 @@
     <ClCompile Include="GraphMainFunction.cpp" />
     <ClCompile Include="GraphConstructor.cpp" />
     <ClCompile Include="GraphQuery.cpp" />
+    <ClCompile Include="Graph_PathFinding_BFS.cpp" />
+    <ClCompile Include="Graph_PathFinding_DFS.cpp" />
     <ClCompile Include="HustMap_Simple_Navigation.cpp" />
   </ItemGroup>
   <ItemGroup>

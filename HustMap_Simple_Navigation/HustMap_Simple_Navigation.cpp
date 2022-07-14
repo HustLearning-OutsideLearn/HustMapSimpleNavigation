@@ -13,7 +13,7 @@ void Clear() {
 
 void Exit() {
 	Clear();
-	cout << "CUTTTTTTTTTTT";
+	cout << "SEE YOU AGAIN";
 	program_active = false;
 }
 
@@ -26,17 +26,18 @@ void App() {
 	int starting_point_index, ending_point_index, choice;
 
 	while (program_active) {
-		cout << "Nhap cho ong chau dang bi nac deee: "; cin >> starting_point_index;
-		cout << "Nhap cho ong chau muon ve di laoooo: "; cin >> ending_point_index;
+		cout << "Enter starting point(e.g 1,2,3): "; cin >> starting_point_index;
+		cout << "Enter ending point(e.g 4,5,6): "; cin >> ending_point_index;
 
 		HustMap.PathFindingDFS(starting_point_index, ending_point_index);
 		Clear();
-		cout << "Ong chau co muon dung tiep hong laooo: , An 1 oke ma an 2 cung oke, nhap deee: "; cin >> choice;
-		if (choice == 2) {
+		cout << "Find another part(enter 1), do not(enter 0): "; cin >> choice;
+		if (choice == 0) {
 			Exit();
 		}
 		else if (choice == 1) {
-			Exit();
+			Clear();
+			continue;
 		}
 		else {
 			Exit();
@@ -45,6 +46,8 @@ void App() {
 }
 
 int main() {
+	//Graph HustMap(node_count);
+
 	// Show the Adjacency Matrix of the HustMap
 	//HustMap.Graph_Show_Adj_Matrix();
 

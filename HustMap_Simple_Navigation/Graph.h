@@ -37,7 +37,7 @@ private:
     */
     int vertice_count;
     list<int> * adj_lst;
-    vector<vector<float>> adj_matrix; // Index of Node starts from 1
+    vector<vector<double>> adj_matrix; // Index of Node starts from 1
     vector<vector<string>> meta_content;
     string adj_matrix_path = "Graph\\Adjacency_Matrix_Preprocess.csv";
     string meta_path = "Graph\\Metadata.csv";
@@ -95,8 +95,6 @@ public:
 
     // Function: PathFinding DFS
     void PathFindingDFS(int start_node_index, int end_node_index);
-
-
 };
 
 #endif
