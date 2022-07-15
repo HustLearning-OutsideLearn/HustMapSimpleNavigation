@@ -1,4 +1,10 @@
-﻿  Graph_PathFinding_DFS.cpp
+﻿  GraphConstructor.cpp
+  GraphMainFunction.cpp
+  GraphQuery.cpp
+  Graph_PathFinding_BFS.cpp
+  Graph_PathFinding_BelmanFord.cpp
+  Graph_PathFinding_DFS.cpp
+  Graph_PathFinding_Dijkstra.cpp
   HustMap_Simple_Navigation.cpp
   Generating Code...
   HustMap_Simple_Navigation.vcxproj -> D:\DataStructureAlgorithmCPP\HustMap_Simple_Navigation\x64\Debug\HustMap_Simple_Navigation.exe

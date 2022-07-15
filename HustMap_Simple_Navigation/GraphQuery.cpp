@@ -71,6 +71,17 @@ void Graph::Graph_Show_Adj_List() {
             cout << "       ";
         }
     }
-
     cout << endl;
+}
+
+void Graph::Graph_Show_Node_Adj_List() {
+    for (int i = 0; i < vertice_count; i++){
+        cout << i + 1 << " -> ";
+        list<node>::iterator it;
+        list<node> base_lst = node_adj_lst[i];
+        for (it = base_lst.begin(); it != base_lst.end(); it++) {
+            cout << "[ " << (*it).dest + 1 << ", " << (*it).cost << "]  ";
+        }
+        cout << endl;
+    }
 }

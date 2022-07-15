@@ -7,6 +7,8 @@
 
 Graph::Graph(int v_count) {
     this->vertice_count = v_count;
+    dist = new double[vertice_count];
+    prev = new int[vertice_count];
 
     // Initialize the Adjacency Matrix of Graph
     Graph_Adj_Matrix_Init();
@@ -20,15 +22,25 @@ Graph::Graph(int v_count) {
     // Initialize the Adjacency List
     adj_lst = new list<int>[vertice_count]; // Re init the Adj_Lst
     Graph_Adj_List_Init();
+
+    // Initialize the Detailed Adjacency List
+    node_adj_lst = new list<node>[vertice_count];
+    Graph_Node_Adj_List_Init();
+
+    // Initialize the Grid Map
+    
 }
 
-//Graph::Graph() {
-//
-//}
+Graph::Graph() {
+    vertice_count = 0;
 
-//Graph::~Graph() {
-//
-//}
+    // Initialize Map of Graph
+    Graph_Load_Map();
+}
+
+Graph::~Graph() {
+
+}
 
 void Graph::Graph_Adj_Matrix_Init() {
     vector<double> row;
@@ -53,7 +65,17 @@ void Graph::Graph_Adj_List_Init() {
     for (int i = 0; i < adj_matrix.size(); i++) {
         for (int j = 0; j < adj_matrix[i].size(); j++) {
             if (adj_matrix[i][j] != 0) {
-                AddEdge(i, j);
+                AddEdge(i, j, false);
+            }
+        }
+    }
+}
+
+void Graph::Graph_Node_Adj_List_Init() {
+    for (int i = 0; i < adj_matrix.size(); i++) {
+        for (int j = 0; j < adj_matrix[i].size(); j++) {
+            if (adj_matrix[i][j] != 0) {
+                AddEdge(i, j, true);
             }
         }
     }
@@ -80,4 +102,9 @@ void Graph::Graph_Metadata_Init() {
 
 void Graph::Graph_Load_Map() {
     map_img = imread(map_path, IMREAD_COLOR);
+}
+
+
+void Graph::Graph_Grid_Map_Init() {
+
 }

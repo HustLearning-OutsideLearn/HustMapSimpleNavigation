@@ -1,6 +1,5 @@
 #include "Graph.h"
 
-
 void Graph::printAllPaths(int s, int d)
 {
     // Mark all the vertices as not visited
@@ -60,10 +59,10 @@ void Graph::PathFindingDFS(int start_node_index, int end_node_index) {
         double sum = 0;
         for (int j = 0; j < current_path[i].size() - 1; j++) {
             sum += adj_matrix[j][j + 1];
-            if (sum < min_sum) {
-                min_sum = sum;
-                min = i;
-            }
+        }
+        if (sum < min_sum) {
+            min_sum = sum;
+            min = i;
         }
     }
 

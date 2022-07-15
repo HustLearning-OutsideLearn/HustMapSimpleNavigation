@@ -2,8 +2,16 @@
 
 using namespace std;
 
-void Graph::AddEdge(int start_node_index, int end_node_index) {
-    adj_lst[start_node_index].push_back(end_node_index);
+void Graph::AddEdge(int start_node_index, int end_node_index, bool node_contain) {
+    if (node_contain) {
+        node newNode;
+        newNode.dest = end_node_index;
+        newNode.cost = adj_matrix[start_node_index][end_node_index];
+        node_adj_lst[start_node_index].push_back(newNode);
+    }
+    else {
+        adj_lst[start_node_index].push_back(end_node_index);
+    }
 }
 
 void Graph::DrawLinePath(vector<int> arr_index, int thickness) {

@@ -46,7 +46,7 @@ void App() {
 }
 
 int main() {
-	//Graph HustMap(node_count);
+	Graph HustMap(node_count);
 
 	// Show the Adjacency Matrix of the HustMap
 	//HustMap.Graph_Show_Adj_Matrix();
@@ -57,11 +57,23 @@ int main() {
 	//Show Adjacency List
 	//HustMap.Graph_Show_Adj_List();
 
-	// Show the Map of Hust
-	//HustMap.Graph_Show_Map(true, 1000, 700);
+	//Show Adjacency Node List
+	//HustMap.Graph_Show_Node_Adj_List();
 
-	// Show path from Node to Node
+	// Show the Map of Hust
+	//HustMap.Graph_Show_Map(false, 1000, 700);
+
+	// Show path from Node to Node DFS
 	//HustMap.PathFindingDFS(1, 18);
 
-	App();
+	// Show path from Node to Node BFS
+	//HustMap.PathFindingBFS(1, 18);
+
+	// Show path from Node to Node Dijkstra
+	//HustMap.PathFindingDijkstra(1, 18);
+
+	// Show path from Node to Node BelmanFord
+	//HustMap.PathFindingBelmanFord(1, 18);
+
+	//App();
 }
