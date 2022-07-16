@@ -2,6 +2,8 @@
 #define Graph_H
 
 #include <iostream>
+#include <algorithm>
+#include <typeinfo>
 #include <set>
 #include <list>
 #include <stack>
@@ -40,6 +42,7 @@ private:
     * adj_matrix_path (string): Adjacency Matrix CSV file path
     * meta_path (string): Metadata file path
     * map_path (string): Image of Hust Map file path
+    * grid_map_path (string): Grid Map (GrayScale) map csv file path
     * map_img (Mat): Store the image loaded by open-cv
     * map_path_img (Mat): Store the image contained path drawed by open-cv
     * test_path (vector): list of index for test the line drawing
@@ -59,12 +62,14 @@ private:
     string adj_matrix_path = "Graph\\Adjacency_Matrix_Preprocess.csv";
     string meta_path = "Graph\\Metadata.csv";
     string map_path = "Map\\BK Map.jpg";
+    string grid_map_path = "Map\\BK Map - GridMap - Segmented.csv";
     Mat map_img;
     Mat map_path_img;
     vector<vector<int>> grid_map_img;
     vector<int> test_path;
     vector<vector<int>> current_path;
-    double * dist;
+    double* dist;
+    bool* sptSet;
     int * prev;
     
     //Graph Init with Adjacency Matrix
@@ -97,6 +102,12 @@ private:
     //Function: Draw path
     void DrawLinePath(vector<int> arr_index, int thickness);
 
+    //Function: Draw path all algo
+    void DrawLinePathAllAlgo(vector<vector<int>> arr_indices);
+
+    //Function: Draw path all algo Multiple Image Show
+    void DrawLinePathAllAlgoMultipleImage(vector<vector<int>> arr_indices, int expected_width, int expected_height);
+
 public:
     //Graph Constructor
     Graph(int V_count);
@@ -125,20 +136,32 @@ public:
     // Function: Showing Map
     void Graph_Show_Map(bool show_path, int expected_width, int expected_height);
 
+    // Function: Showing Grid Map Size
+    void Graph_Show_Grid_Map_Size();
+
     // Take path test
     vector<int> Graph_Get_Test_Path();
 
     // Function: PathFinding DFS
-    void PathFindingDFS(int start_node_index, int end_node_index);
+    vector<int> PathFindingDFS(int start_node_index, int end_node_index);
 
     // Function: PathFinding BFS
-    void PathFindingBFS(int start_node_index, int end_node_index);
+    vector<int> PathFindingBFS(int start_node_index, int end_node_index);
 
     // Function: PathFinding Dijkstra
-    void PathFindingDijkstra(int start_node_index, int end_node_index);
+    vector<int> PathFindingDijkstra(int start_node_index, int end_node_index);
 
     // Function: PathFinding BelmanFord
-    void PathFindingBelmanFord(int start_node_index, int end_node_index);
+    vector<int> PathFindingBelmanFord(int start_node_index, int end_node_index);
+
+    // Function: PathFinding A star
+    vector<int> PathFindingAstar(int start_node_index, int end_node_index);
+
+    // Function: PathFinding A star non-grid
+    vector<int> PathFindingAstarNonGrid(int start_node_index, int end_node_index);
+
+    // Function: PathFinding
+    void PathFinding(int start_node_index, int end_node_index, string algo);
 };
 
 #endif

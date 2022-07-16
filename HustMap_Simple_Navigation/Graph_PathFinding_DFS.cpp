@@ -31,7 +31,7 @@ void Graph::printAllPathsUtil(int u, int d, bool visited[], int path[], int& pat
         for (int i = 0; i < path_index; i++)
         {
             //cout << path[i] + 1 << " ";
-            base.push_back(path[i] + 1);
+            base.push_back(path[i]);
         }
         current_path.push_back(base);
         //cout << endl;
@@ -50,7 +50,7 @@ void Graph::printAllPathsUtil(int u, int d, bool visited[], int path[], int& pat
     visited[u] = false;
 }
 
-void Graph::PathFindingDFS(int start_node_index, int end_node_index) {
+vector<int> Graph::PathFindingDFS(int start_node_index, int end_node_index) {
     printAllPaths(start_node_index - 1, end_node_index - 1);
 
     int min = 0;
@@ -58,7 +58,9 @@ void Graph::PathFindingDFS(int start_node_index, int end_node_index) {
     for (int i = 0; i < current_path.size(); i++) {
         double sum = 0;
         for (int j = 0; j < current_path[i].size() - 1; j++) {
-            sum += adj_matrix[j][j + 1];
+            int curr = current_path[i][j];
+            int next = current_path[i][j + 1];
+            sum += adj_matrix[curr][next];
         }
         if (sum < min_sum) {
             min_sum = sum;
@@ -66,6 +68,15 @@ void Graph::PathFindingDFS(int start_node_index, int end_node_index) {
         }
     }
 
-    DrawLinePath(current_path[min], 40);
-    Graph_Show_Map(true, 700, 500);
+    // Show the shortest path
+    cout << "The path found by DFS is: " << endl;
+    for (int i = 0; i < current_path[min].size(); i++) {
+        cout << current_path[min][i] << " -> ";
+    }
+    cout << "\n" << endl;
+
+    /*DrawLinePath(current_path[min], 40);
+    Graph_Show_Map(true, 700, 500);*/
+
+    return current_path[min];
 }

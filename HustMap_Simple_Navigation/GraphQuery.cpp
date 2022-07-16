@@ -76,12 +76,16 @@ void Graph::Graph_Show_Adj_List() {
 
 void Graph::Graph_Show_Node_Adj_List() {
     for (int i = 0; i < vertice_count; i++){
-        cout << i + 1 << " -> ";
+        cout << i << " -> ";
         list<node>::iterator it;
         list<node> base_lst = node_adj_lst[i];
         for (it = base_lst.begin(); it != base_lst.end(); it++) {
-            cout << "[ " << (*it).dest + 1 << ", " << (*it).cost << "]  ";
+            cout << "[ " << (*it).dest << ", " << (*it).cost << "] ";
         }
         cout << endl;
     }
+}
+
+void Graph::Graph_Show_Grid_Map_Size() {
+    cout << " The size of the Grid Map is " << "WIDTH: " << grid_map_img.size() << " -  " << "HEIGHT: " << grid_map_img[0].size();
 }

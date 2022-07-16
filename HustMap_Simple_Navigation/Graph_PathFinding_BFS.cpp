@@ -8,7 +8,7 @@ int isNotVisited(int x, vector<int>& path)
     return 1;
 }
 
-void Graph::PathFindingBFS(int start_node_index, int end_node_index) {
+vector<int> Graph::PathFindingBFS(int start_node_index, int end_node_index) {
     //restore to base 
     int start = start_node_index - 1;
     int end = end_node_index - 1;
@@ -70,7 +70,11 @@ void Graph::PathFindingBFS(int start_node_index, int end_node_index) {
     vector<int> output_path = paths[min];
     
     // Show the shortest path
+    cout << "The path found by BFS is: " << endl;
     for (int i = 0; i < output_path.size(); i++) {
-        cout << output_path[i] << " -> ";
+        cout << output_path[i] << " <- ";
     }
+    cout << "\n" << endl;
+
+    return output_path;
 }

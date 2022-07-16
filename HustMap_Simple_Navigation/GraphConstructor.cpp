@@ -1,9 +1,4 @@
 #include "Graph.h"
-#include <iostream>
-#include <vector>
-#include <fstream>
-#include <string>
-#include <sstream>
 
 Graph::Graph(int v_count) {
     this->vertice_count = v_count;
@@ -28,7 +23,7 @@ Graph::Graph(int v_count) {
     Graph_Node_Adj_List_Init();
 
     // Initialize the Grid Map
-    
+    //Graph_Grid_Map_Init();
 }
 
 Graph::Graph() {
@@ -106,5 +101,20 @@ void Graph::Graph_Load_Map() {
 
 
 void Graph::Graph_Grid_Map_Init() {
+    vector<int> row;
+    string line, word;
 
+    fstream file(adj_matrix_path, ios::in);
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            row.clear();
+
+            stringstream str(line);
+
+            while (getline(str, word, ','))
+                row.push_back(stoi(word));
+            grid_map_img.push_back(row);
+        }
+    }
+    else cout << "Could not open the file\n";
 }
