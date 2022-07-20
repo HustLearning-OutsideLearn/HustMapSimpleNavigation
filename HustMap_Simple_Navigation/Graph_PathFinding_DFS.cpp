@@ -70,8 +70,8 @@ vector<int> Graph::PathFindingDFS(int start_node_index, int end_node_index) {
 
     // Show the shortest path
     cout << "The path found by DFS is: " << endl;
-    for (int i = 0; i < current_path[min].size(); i++) {
-        cout << current_path[min][i] << " -> ";
+    for (auto i = current_path[min].rbegin(); i != current_path[min].rend(); i++) {
+        cout << (* i)+1 << " <- ";
     }
     cout << "\n" << endl;
 

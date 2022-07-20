@@ -16,7 +16,7 @@ void Graph::AddEdge(int start_node_index, int end_node_index, bool node_contain)
 
 void Graph::DrawLinePath(vector<int> arr_index, int thickness) {
 
-    Mat img_base = map_img;
+    Mat img_base = map_img.clone();
     for (int i = 0; i < arr_index.size() - 1; i++) {
         stringstream convert;
         convert << meta_content[arr_index[i]+1][1];
@@ -38,7 +38,7 @@ void Graph::DrawLinePath(vector<int> arr_index, int thickness) {
         Point end(pos_X_final, pos_Y_final);
         line(img_base, start, end, Scalar(0, 0, 255), thickness, LINE_8);
     }
-    map_path_img = img_base;
+    map_path_img = img_base.clone();
 }
 
 void Graph::DrawLinePathAllAlgo(vector<vector<int>> arr_indices) {
@@ -182,9 +182,98 @@ void Graph::PathFinding(int start_node_index, int end_node_index, string algo) {
     }
 }
 
+vector<long double> Graph::TimeCalculating(vector<int> start_points, vector<int> end_points) {
+    auto start = high_resolution_clock::now();
+    auto stop = high_resolution_clock::now();
+    duration<long double, std::milli> fp_ms;
+    vector<long double> sum{ 0,0,0,0,0 }; //0: DFS, 1: BFS, 2: DIJ, 3: BEL, 4: A*
 
+    for (int i = 0; i < start_points.size(); i++) {
+        for (int j = 0; j < end_points.size(); j++) {
+            if (start_points[i] != end_points[i]) {
+                start = high_resolution_clock::now();
+                PathFindingDFS(start_points[i], end_points[j]);
+                stop = high_resolution_clock::now();
+                fp_ms = stop - start;
+                sum[0] += fp_ms.count();
 
+                start = high_resolution_clock::now();
+                PathFindingBFS(start_points[i], end_points[j]);
+                stop = high_resolution_clock::now();
+                fp_ms = stop - start;
+                sum[1] += fp_ms.count();
 
+                start = high_resolution_clock::now();
+                PathFindingDijkstra(start_points[i], end_points[j]);
+                stop = high_resolution_clock::now();
+                fp_ms = stop - start;
+                sum[2] += fp_ms.count();
 
+                start = high_resolution_clock::now();
+                PathFindingBelmanFord(start_points[i], end_points[j]);
+                stop = high_resolution_clock::now();
+                fp_ms = stop - start;
+                sum[3] += fp_ms.count();
 
+                start = high_resolution_clock::now();
+                PathFindingAstarNonGrid(start_points[i], end_points[j]);
+                stop = high_resolution_clock::now();
+                fp_ms = stop - start;
+                sum[4] += fp_ms.count();
+            }
+        }
+    }
 
+    return sum;
+}
+
+void Show(vector<long double> sum, vector<string> names, int count) {
+    for (int i = 0; i < names.size(); i++) {
+        cout << "Average time of Execution by " << names[i] << " " << sum[i]/count  << endl;
+    }
+}
+
+void Graph::TimeExecution() {
+    vector<int> start_points_overall{1, 35, 15, 13};
+    vector<int> end_points_overall{6, 9, 26, 31};
+
+    vector<int> start_points_long{ 1, 2, 10};
+    vector<int> end_points_long{ 13, 18, 6};
+
+    vector<int> start_points_short{ 7, 8, 9 };
+    vector<int> end_points_short{ 23, 26, 30 };
+
+    vector<int> start_points_long_mag{ 1, 15 , 13, 35};
+    vector<int> end_points_short_mag{ 26, 32, 31, 30 };
+
+    vector<int> all_start;
+    for (int i = 0; i < vertice_count; i++) {
+        all_start.push_back(i);
+    }
+    vector<int> all_end;
+    for (int i = 0; i < vertice_count; i++) {
+        all_end.push_back(i);
+    }
+    
+
+    vector<double> time_exe[5]; //0: DFS, 1: BFS, 2: DIJ, 3: BEL, 4: A*
+    
+    vector<string> names{ "DFS", "BFS", "DIJKSTRA", "BELMON FORD", "A*" };
+
+    vector<long double> sum_overall = TimeCalculating(start_points_overall, end_points_overall);
+    vector<long double> sum_long = TimeCalculating(start_points_long, end_points_long);
+    vector<long double> sum_short = TimeCalculating(start_points_short, end_points_short);
+    vector<long double> sum_long_mag = TimeCalculating(start_points_long_mag, end_points_short_mag);
+    vector<long double> sum_all = TimeCalculating(all_start, all_end);
+
+    cout << "Overall choosed Test Case" << endl;
+    Show(sum_overall, names, 16);
+    cout << "Big number of Link Test Case" << endl;
+    Show(sum_long, names, 9);
+    cout << "Small number of Link Test Case" << endl;
+    Show(sum_short, names, 9);
+    cout << "Long in Magnitube Test Case" << endl;
+    Show(sum_long_mag, names, 16);
+    /*cout << "All Test Case" << endl;
+    Show(sum_all, names, 1190);*/
+}

@@ -21,12 +21,12 @@ void App() {
 	Clear();
 
 	Graph HustMap(node_count);
-	HustMap.Graph_Show_MetaData(false);
 
 	int starting_point_index, ending_point_index, choice;
 	string algo_choice;
 
 	while (program_active) {
+		HustMap.Graph_Show_MetaData(false);
 		cout << "Enter starting point(e.g 1,2,3): "; cin >> starting_point_index;
 		cout << "Enter ending point(e.g 4,5,6): "; cin >> ending_point_index;
 
@@ -86,7 +86,7 @@ int main() {
 	
 	// Show path from Node to Node Dijkstra
 	//HustMap.PathFindingDijkstra(18, 25);
-	//HustMap.PathFinding(18, 25, "dij");
+	//HustMap.PathFinding(16, 34, "dij");
 
 	// Show path from Node to Node BelmanFord
 	//HustMap.PathFindingBelmanFord(1, 18);
@@ -103,5 +103,8 @@ int main() {
 	// Show all path created by all algo from Node to Node
 	//HustMap.PathFinding(1, 18, "all");
 
-	App();
+	// Calculate the Average time of Execution by all Algo
+	HustMap.TimeExecution();
+
+	//App();
 }

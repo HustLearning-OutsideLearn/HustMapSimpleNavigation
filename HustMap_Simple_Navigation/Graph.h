@@ -1,26 +1,29 @@
 #ifndef Graph_H
 #define Graph_H
 
+// IO & Complexity
 #include <iostream>
 #include <algorithm>
-#include <typeinfo>
+#include <chrono>
+// Data Structure
 #include <set>
 #include <list>
 #include <stack>
 #include <queue>
 #include <vector>
-#include <iostream>
-#include <vector>
-#include <fstream>
 #include <string>
+// Data Types
+#include <typeinfo>
+#include <fstream>
 #include <sstream>
+// OpenCV
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 
-
 using namespace cv;
 using namespace std;
+using namespace std::chrono;
 
 typedef struct node {
     int dest;
@@ -162,6 +165,12 @@ public:
 
     // Function: PathFinding
     void PathFinding(int start_node_index, int end_node_index, string algo);
+
+    // Function: Time Executed
+    void TimeExecution();
+
+    // Function: Time Calculating
+    vector<long double> TimeCalculating(vector<int> start, vector<int> end);
 };
 
 #endif

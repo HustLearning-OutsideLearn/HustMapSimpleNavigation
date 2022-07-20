@@ -21,12 +21,17 @@ vector<int> Graph::PathFindingBFS(int start_node_index, int end_node_index) {
     path.push_back(start);
     q.push(path);
 
+    bool* visited = new bool[vertice_count];
+    for (int i = 0; i < vertice_count; i++)
+        visited[i] = false;
+    visited[start] = true;
 
     while (!q.empty()) {
         path = q.front();
+        
         q.pop();
         int last = path[path.size() - 1];
-
+        visited[last] = true;
         // if last vertex is the desired destination
         // then print the path
         if (last == end)
@@ -36,7 +41,7 @@ vector<int> Graph::PathFindingBFS(int start_node_index, int end_node_index) {
         // current vertex and push new path to queue
         list<int>::iterator i;
         for (i = adj_lst[last].begin(); i != adj_lst[last].end(); i++) {
-            if (isNotVisited((*i), path)) {
+            if (!visited[(*i)]) {
                 vector<int> newpath(path);
                 newpath.push_back((*i));
                 q.push(newpath);
@@ -66,15 +71,13 @@ vector<int> Graph::PathFindingBFS(int start_node_index, int end_node_index) {
             min = i;
         }
     }
-
-    vector<int> output_path = paths[min];
     
     // Show the shortest path
     cout << "The path found by BFS is: " << endl;
-    for (int i = 0; i < output_path.size(); i++) {
-        cout << output_path[i] << " <- ";
+    for (auto i = paths[min].rbegin(); i != paths[min].rend(); i++) {
+        cout << (*i) + 1 << " <- ";
     }
     cout << "\n" << endl;
 
-    return output_path;
+    return paths[min];
 }

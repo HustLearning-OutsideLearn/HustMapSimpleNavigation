@@ -52,7 +52,7 @@ vector<int> Graph::PathFindingAstarNonGrid(int start_node_index, int end_node_in
 			// u to v, and total weight of path from src to  v through u is
 			// smaller than current value of dist[v]
 			if (!sptSet[v] && adj_matrix[u][v] && dist[u] != INT_MAX
-				&& dist[u] + adj_matrix[u][v] < dist[v]) {
+				&& dist[u] + adj_matrix[u][v] < dist[v]){
 				dist[v] = dist[u] + adj_matrix[u][v];
 				prev[v] = u;
 			}
@@ -64,11 +64,11 @@ vector<int> Graph::PathFindingAstarNonGrid(int start_node_index, int end_node_in
 		}*/
 
 	cout << " The path found by A star is: " << endl;
-	int current = end_node_index;
+	int current = end;
 	store_path.push_back(current);
-	cout << current << " <- ";
+	cout << current + 1 << " <- ";
 	while (prev[current] != -1) {
-		cout << prev[current] << " <- ";
+		cout << prev[current] + 1 << " <- ";
 		current = prev[current];
 		store_path.push_back(current);
 	}

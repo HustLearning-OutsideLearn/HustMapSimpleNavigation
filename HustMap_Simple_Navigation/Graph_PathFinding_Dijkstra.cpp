@@ -16,7 +16,7 @@ int minDistance(double dist[], bool sptSet[], int V)
 
 vector<int> Graph::PathFindingDijkstra(int start_node_index, int end_node_index) {
 	//restore to base node start from 0
-	int start = start_node_index - 1;
+	int start = start_node_index - 1; 
 	int end = end_node_index - 1;
 
 	//Store Path
@@ -38,7 +38,7 @@ vector<int> Graph::PathFindingDijkstra(int start_node_index, int end_node_index)
 	dist[start] = 0;
 
 	// Find shortest path for all vertices
-	for (int count = 0; count < vertice_count - 1; count++) {
+	for (int count = 0; count < vertice_count; count++) {
 		// Pick the minimum distance vertex from the set of vertices not
 		// yet processed. u is always equal to src in the first iteration.
 		int u = minDistance(dist, sptSet, vertice_count);
@@ -65,11 +65,11 @@ vector<int> Graph::PathFindingDijkstra(int start_node_index, int end_node_index)
 		}	*/
 
 	cout << " The path found by Dijkstra is: " << endl;
-	int current = end_node_index;
+	int current = end;
 	store_path.push_back(current);
-	cout << current << " <- ";
+	cout << current + 1 << " <- ";
 	while (prev[current] != -1) {
-		cout << prev[current] << " <- ";
+		cout << prev[current] + 1 << " <- ";
 		current = prev[current];
 		store_path.push_back(current);
 	}

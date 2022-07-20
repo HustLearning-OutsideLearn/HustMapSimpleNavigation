@@ -86,9 +86,9 @@ vector<int> Graph::PathFindingBelmanFord(int start_node_index, int end_node_inde
 		cout << " The path found by Belman Ford is: " << endl;
 		int current = end_node_index;
 		store_path.push_back(current);
-		cout << current << " -> ";
+		cout << current + 1 << " -> ";
 		while (prev[current] != -1) {
-			cout << prev[current] << " -> ";
+			cout << prev[current] + 1 << " -> ";
 			current = prev[current];
 			store_path.push_back(current);
 		}
@@ -104,11 +104,11 @@ vector<int> Graph::PathFindingBelmanFord(int start_node_index, int end_node_inde
 		}*/
 
 		cout << " The path found by Belman Ford is: " << endl;
-		int current = end_node_index;
+		int current = end;
 		store_path.push_back(current);
-		cout << current << " -> ";
+		cout << current + 1 << " -> ";
 		while (prev[current] != -1) {
-			cout << prev[current] << " -> ";
+			cout << prev[current] + 1 << " -> ";
 			current = prev[current];
 			store_path.push_back(current);
 		}
