@@ -96,6 +96,9 @@ int main() {
 	//HustMap.PathFindingAstarNonGrid(1, 18);
 	//HustMap.PathFinding(25, 18, "*");
 
+	// Show path from Node to Node Astar
+	//HustMap.PathFindingAstar(1, 18);
+
 	// Show auto path from Node to Node 
 	//HustMap.PathFinding(1, 18, "auto");
 	//HustMap.PathFinding(1, 18, " ");
@@ -104,7 +107,7 @@ int main() {
 	//HustMap.PathFinding(1, 18, "all");
 
 	// Calculate the Average time of Execution by all Algo
-	HustMap.TimeExecution();
+	//HustMap.TimeExecution();
 
-	//App();
+	App();
 }

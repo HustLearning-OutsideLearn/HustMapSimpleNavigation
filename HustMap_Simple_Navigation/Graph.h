@@ -99,6 +99,9 @@ private:
     //Function: Get all path utils
     void printAllPathsUtil(int u, int d, bool visited[], int path[], int& path_index);
 
+    //Function: AstarPathFinding
+    vector<int> AstarFindingMain(int u, int d, bool visited[], int path[], int& path_index);
+
     //Function: Add Edge to Graph -- Use when init graph with Adjacency List
     void AddEdge(int start_node_index, int end_node_index, bool node);
 
@@ -110,6 +113,9 @@ private:
 
     //Function: Draw path all algo Multiple Image Show
     void DrawLinePathAllAlgoMultipleImage(vector<vector<int>> arr_indices, int expected_width, int expected_height);
+
+    //Function: Euclidian Distance
+    double EuclididanDistance(int first_node, int second_node);
 
 public:
     //Graph Constructor
