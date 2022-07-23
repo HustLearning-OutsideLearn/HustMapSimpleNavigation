@@ -1,5 +1,9 @@
 # DataStructureAlgorithmCPP
  
- In order to use the application, simply open the folder HustMap_Simple_Navigation and click to the HustMap_Simple_Navigation.exe file
+ In order to use the application, follow the instruction below:
+ - Install Visual Studio Code
+ - Instal OpenCV
+ - Setup OpenCV
+ - Build the Project from Visual Studio
 
  ENJOY!
