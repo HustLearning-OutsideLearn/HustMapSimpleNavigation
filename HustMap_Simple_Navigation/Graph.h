@@ -41,7 +41,7 @@ private:
     *   initial state: list of edge pointer
     *   final state (graph initialization): array of list of node and its edge pointer
     * adj_matrix (vector<vector>): 2D vector store the adjacency matrix
-    * meta_conttent (vector<vector>): 2D vector store the metadatas
+    * meta_content (vector<vector>): 2D vector store the metadatas
     * adj_matrix_path (string): Adjacency Matrix CSV file path
     * meta_path (string): Metadata file path
     * map_path (string): Image of Hust Map file path
