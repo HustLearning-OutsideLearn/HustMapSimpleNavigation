@@ -1,15 +1,2 @@
-﻿  GraphMainFunction.cpp
-  GraphConstructor.cpp
-  GraphQuery.cpp
-  Graph_PathFinding_Astar.cpp
-  Graph_PathFinding_BelmanFord.cpp
-  Graph_PathFinding_BFS.cpp
-  Graph_PathFinding_DFS.cpp
-  Graph_PathFinding_Dijkstra.cpp
-  HustMap_Simple_Navigation.cpp
-  Graph_PathFinding_Astar_Non_Grid.cpp
-  ListTest.cpp
-  test_open_cv.cpp
-  Generating Code...
-D:\DataStructureAlgorithmCPP\HustMap_Simple_Navigation\Graph_PathFinding_Astar.cpp(64): warning C4715: 'Graph::AstarFindingMain': not all control paths return a value
-  HustMap_Simple_Navigation.vcxproj -> D:\DataStructureAlgorithmCPP\HustMap_Simple_Navigation\x64\Debug\HustMap_Simple_Navigation.exe
+﻿  HustMap_Simple_Navigation.cpp
+  HustMap_Simple_Navigation.vcxproj -> D:\Github\HustMapSimpleNavigation\HustMap_Simple_Navigation\x64\Debug\HustMap_Simple_Navigation.exe

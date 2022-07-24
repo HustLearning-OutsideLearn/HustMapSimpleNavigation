@@ -86,7 +86,7 @@ int main() {
 	
 	// Show path from Node to Node Dijkstra
 	//HustMap.PathFindingDijkstra(18, 25);
-	//HustMap.PathFinding(16, 34, "dij");
+	//HustMap.PathFinding(35, 31, "dij");
 
 	// Show path from Node to Node BelmanFord
 	//HustMap.PathFindingBelmanFord(1, 18);
